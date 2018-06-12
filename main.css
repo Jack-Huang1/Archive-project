@@ -102,6 +102,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+  margin:0
+}
+
 h1{
     background-color: #001f3f;
     text-align: center;
@@ -113,18 +117,13 @@ h1{
 
 }
 
-h1 img{
-    height: 30px;
-    width: 30px;
-    opacity: 50%;
-}
-
-h4{
+.footer {
     background-color: #a4ef99;
     text-align: center;
     margin: 0;
     padding: 0;
     font-style: italic;
+    width: 100%;
  
 }
 
@@ -133,7 +132,10 @@ h3{
     text-align: center;
     margin: 0;
     padding: 0;
+}
 
+h4 {
+  margin: 0;
 }
 
 .tableone{
@@ -145,6 +147,8 @@ h3{
 .topnav {
     overflow: hidden;
     background-color: #001f3f;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 /* Style the links inside the navigation bar */
@@ -154,7 +158,7 @@ h3{
     display: inline-block;
     color: orange;
     text-align: center;
-    padding: 20px 22px;
+    padding: 15px 22px;
     text-decoration: none;
     font-size: 17px;
 }
@@ -162,13 +166,12 @@ h3{
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #001f3f;
-    color: black;
+    color: white;
 }
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
     background-color: #001f3f;
-    color: orange;
 }
 
 /* Style the search box inside the navigation bar */
@@ -196,18 +199,60 @@ h3{
     }
 }
 
-* {box-sizing: border-box}
-body {margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+.content {
+  background-color: orange;
+  height: 43rem;
+}
+
+.featured {
+  width: 70%;
+  height: 100%;
+  padding: 1rem;
+  float: left;
+  border-right: 2px solid black;
+}
+
+.recent {
+  margin: 0;
+  background-color: red;
+  float: left;
+  width: 30%;
+  padding: 1rem;
+  height: 100%;
+}
+
+.title {
+  margin: auto;
+  padding-bottom: 2rem;
+}
+
+.articlewindow {
+  width: 90%;
+  height: 27%;
+  border: 2px;
+  border-radius: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.articlewindow:hover {
+  opacity: 0.7;
+}
+
+* {box-sizing: border-box;}
+.mySlides {display: none;}
 
 /* Slideshow container */
 .slideshow-container {
   max-width: 50rem;
   position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Next & previous buttons */
+/* Next & previous buttons for slideshow */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -248,13 +293,6 @@ img {vertical-align: middle;}
 .active, .dot:hover {
   background-color: #717171;
 }
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-  
-
-
 
 /* ==========================================================================
    Helper classes
