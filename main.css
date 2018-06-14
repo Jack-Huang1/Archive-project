@@ -102,6 +102,41 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+   .boomboom{
+    position: relative;
+   }
+
+   .bottomcenterone{
+      position: absolute;
+    left: 0;
+    top: 90%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+   }
+
+.categoriestable{
+  height: 40%;
+  left: 10%;
+  margin: 20px auto;
+  overflow-y: scroll;
+  position: static;
+  width: 80%;
+}
+
+
+ .searchbar{
+     width: 60%;
+     background-color: #DEDEDE;
+     height: 90%;
+     padding: 1rem;
+     margin: 2rem;
+     float: left;
+     border-radius: 2%;
+     box-shadow: 0px 0px 20px #262E30;
+   }
+
+
 body {
   margin: 0;
 }
@@ -276,16 +311,37 @@ body {
   box-shadow: 0px 0px 20px #262E30;
 }
 
+.archive{
+  margin: 2rem;
+  background-color: #062f4f;
+  float: left;
+  width: 95%;
+  padding: 1rem;
+  height: 90%;
+  border-radius: 2%;
+  box-shadow: 0px 0px 20px #262E30;
+}
+
+}
+
 .title {
   margin: auto;
   padding-bottom: 1rem;
-  font-family: sans-serif;
+  font-family: serif;
+
+  color: #DEDEDE;
+}
+
+.archivetitle {
+  margin: auto;
+  padding-bottom: 1rem;
+  font-family: serif;
   color: #DEDEDE;
 }
 
 .articlewindow {
-  width: 90%;
-  height: 27%;
+  width: auto;
+  height: auto;
   border: 2px;
   border-radius: 5%;
   display: block;
@@ -383,7 +439,7 @@ h4 {
  * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  *
  * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
+ *    causes   to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
