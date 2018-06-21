@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>CNUT</title>
+  <meta name="description" content="archival platform for the internet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link href="./css/main.css" type = "text/css" rel="stylesheet">
+
+
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+        padding: 16px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;
+        height: 100%;
+        padding-top: 4rem;
+    }
+
+    /*overwrite featured css
+    .featured {
+      display: inline-block;
+      width: 60%;
+      background-color: #DEDEDE;
+      height: 90%;
+      padding: 1rem;
+      margin: auto;
+      border-radius: 2%;
+      box-shadow: 0px 0px 20px #262E30;
+    }*/
+
+    /* Full-width input fields */
+    .container input[type=text], input[type=password] {
+      width: 100%;
+
+
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    .container input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        padding: 10px;
+        margin-top: -5px;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+        padding-bottom: 5rem;
+    }
+  </style>
+</head>
+
+<body style="background-color: white;">
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+
+
+  <h1 class="banner">
+    CNUT WIKI
+  </h1>
+
+  <div class="topnav">
+    <a class="active" href="./index.html">Home</a>
+    <a href="./bertovone.html" type="html">Hot</a>
+    <div class="dropdown">
+      <button class="dropbtn"><a href="./archive.html" type="html">Archive</a> 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <div class="row">
+          <div class="column">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+          <div class="column">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+          <div class="column">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+          <div class="column">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+          <div class="column">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+          <a href = "./archive.html" type ="html" style="float: right; background-color: inherit; color: black">More...</a>
+        </div>
+      </div>
+    </div> 
+    <input type="text" placeholder="Search...">
+  </div>
+
+  <div class="content">
+  
+      <form action="/action_page.php">
+        <div class="container">
+          <h1 style="text-align: center;">Register</h1>
+          <p style="text-align: center;">Please fill in this form to create an account.</p>
+          <hr>
+
+          <label for="email"><b>Email</b></label>
+          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="text" placeholder="Enter Email" name="email" required>
+          </span>
+
+          <label for="psw"><b>Password</b></label>
+          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="password" placeholder="Enter Password" name="psw" required>
+          </span>
+
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          </span>
+          <hr>
+
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+        
+        <div class="container signin">
+          <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+      </form>
+
+  </div>
+
+  <footer class="footer">
+    <h4>ABOUT</h4>
+  </footer>
+
+
+  <!-- script for slideshow -->
+  <script>
+  var slideIndex = 1;
+    showSlides(slideIndex);
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+  }
+  function currentSlide(n) {
+      showSlides(slideIndex = n);
+  }
+  function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+    }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+  }
+</script>
+
+  <!-- boilerplate scripts -->
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
