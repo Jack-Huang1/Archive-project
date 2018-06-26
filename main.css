@@ -112,6 +112,14 @@ body {
   height: 85vh;
 }
 
+.error {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-style: italic;
+  font-size: 13px;
+}
+
 .banner{
     background-color: #062f4f;
     text-align: center;
