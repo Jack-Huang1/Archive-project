@@ -13,8 +13,8 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link href="./css/main.css" type = "text/css" rel="stylesheet">
-
-
+  <link rel="STYLESHEET" type="text/css" href="pwdwidget.css" />
+  <script src="pwdwidget.js" type="text/javascript"></script>
   <style>
     * {
         box-sizing: border-box;
@@ -24,30 +24,14 @@
     .container {
         padding: 16px;
         background-color: white;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
         width: 65%;
-        height: 100%;
-        padding-top: 4rem;
     }
-
-    /*overwrite featured css
-    .featured {
-      display: inline-block;
-      width: 60%;
-      background-color: #DEDEDE;
-      height: 90%;
-      padding: 1rem;
-      margin: auto;
-      border-radius: 2%;
-      box-shadow: 0px 0px 20px #262E30;
-    }*/
 
     /* Full-width input fields */
     .container input[type=text], input[type=password] {
       width: 100%;
-
-
+      padding: 10px;
       display: inline-block;
       border: none;
       background: #f1f1f1;
@@ -56,14 +40,6 @@
     .container input[type=text]:focus, input[type=password]:focus {
         background-color: #ddd;
         outline: none;
-        padding: 10px;
-        margin-top: -5px;
-    }
-
-    /* Overwrite default styles of hr */
-    hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
     }
 
     /* Set a style for the submit button */
@@ -91,18 +67,59 @@
     .signin {
         background-color: #f1f1f1;
         text-align: center;
-        padding-bottom: 5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
   </style>
 </head>
 
-<body style="background-color: white;">
+<body>
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
   <!-- Add your site or application content here -->
 
+<?php
+// define variables and set to empty values
+$nameErr = $userErr = $emailErr = $pswErr = $repswErr = "";
+$name = $username = $email = $psw = $repsw = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed"; 
+    }
+  }
+
+  if (empty($_POST["username"])) {
+    $userErr = "Name is required";
+  } else {
+    $username = test_input($_POST["username"]);
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format"; 
+    }
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
 
   <h1 class="banner">
     CNUT WIKI
@@ -144,71 +161,71 @@
     <input type="text" placeholder="Search...">
   </div>
 
-  <div class="content">
+  <div class="content" style="height: 800px">
   
-      <form action="/action_page.php">
+      <form name = "register" method=post action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
         <div class="container">
+
           <h1 style="text-align: center;">Register</h1>
           <p style="text-align: center;">Please fill in this form to create an account.</p>
           <hr>
 
+
+
+          <label for="name"><b>Name</b></label>
+          <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="text" placeholder="Enter Name" name="name">
+          </span>
+          <span class="error"><?php echo $nameErr;?></span><br>
+
+
+          <label for="username"><b>Username</b></label>
+          <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="text" placeholder="Enter Username" name="username">
+          </span>
+          <span class="error"><?php echo $userErr;?></span><br>
+
+
           <label for="email"><b>Email</b></label>
-          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
-            <input type="text" placeholder="Enter Email" name="email" required>
+          <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="text" placeholder="Enter Email" name="email">
           </span>
+          <span class="error"><?php echo $emailErr;?></span><br>
 
-          <label for="psw"><b>Password</b></label>
-          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
-            <input type="password" placeholder="Enter Password" name="psw" required>
-          </span>
 
+          <label for='regpwd'><b>Password</b></label> <br />
+          <div class='pwdwidgetdiv' id='thepwddiv'></div>
+          <script>
+            var pwdwidget = new PasswordWidget('thepwddiv','regpwd');
+            pwdwidget.MakePWDWidget();
+          </script>
+          <noscript>
+            <div><input type='password' id='regpwd' name='regpwd' /></div>
+          </noscript>
+          <br>
+
+          
           <label for="psw-repeat"><b>Repeat Password</b></label>
-          <span style="width: 100%; padding: 10px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
+            <input type="password" placeholder="Repeat Your Password" name="psw-repeat">
           </span>
+          <span class="error"><?php echo $repswErr;?></span><br>
           <hr>
 
           <button type="submit" class="registerbtn">Register</button>
-        </div>
-        
-        <div class="container signin">
+
+          <div class="signin">
           <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
         </div>
       </form>
 
+      <footer class="footer">
+        <h4>ABOUT</h4>
+      </footer>
   </div>
 
-  <footer class="footer">
-    <h4>ABOUT</h4>
-  </footer>
-
-
-  <!-- script for slideshow -->
-  <script>
-  var slideIndex = 1;
-    showSlides(slideIndex);
-  function plusSlides(n) {
-      showSlides(slideIndex += n);
-  }
-  function currentSlide(n) {
-      showSlides(slideIndex = n);
-  }
-  function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-    }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-  }
-</script>
 
   <!-- boilerplate scripts -->
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
