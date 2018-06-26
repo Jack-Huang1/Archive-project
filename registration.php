@@ -87,28 +87,41 @@ $name = $username = $email = $psw = $repsw = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
+    $nameErr = "* A name is required";
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed"; 
+      $nameErr = "* Only letters and white space allowed"; 
     }
   }
 
   if (empty($_POST["username"])) {
-    $userErr = "Name is required";
+    $userErr = "* A username is required";
   } else {
     $username = test_input($_POST["username"]);
   }
   
   if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
+    $emailErr = "* An email is required";
   } else {
     $email = test_input($_POST["email"]);
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format"; 
+      $emailErr = "* Invalid email format"; 
+    }
+  }
+
+  if (empty($_POST["psw"])) {
+    $pswErr = "* A password is required";
+  } else {
+    $psw = test_input($_POST["psw"]);
+
+    if (empty($_POST["psw-repeat"])) {
+      $repswErr = "* Repeat your password";
+    }
+    elseif (strcmp(test_input($_POST["psw-repeat"]), $psw)) {
+      $repswErr = "* Repeated password does not match original password";
     }
   }
 }
@@ -161,7 +174,7 @@ function test_input($data) {
     <input type="text" placeholder="Search...">
   </div>
 
-  <div class="content" style="height: 800px">
+  <div class="content" style="height: 805px">
   
       <form name = "register" method=post action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
@@ -174,43 +187,44 @@ function test_input($data) {
 
 
           <label for="name"><b>Name</b></label>
+          <span class="error"><?php echo $nameErr;?></span>
           <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
             <input type="text" placeholder="Enter Name" name="name">
           </span>
-          <span class="error"><?php echo $nameErr;?></span><br>
-
+          
 
           <label for="username"><b>Username</b></label>
+          <span class="error"><?php echo $userErr;?></span>
           <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
             <input type="text" placeholder="Enter Username" name="username">
           </span>
-          <span class="error"><?php echo $userErr;?></span><br>
 
 
           <label for="email"><b>Email</b></label>
+          <span class="error"><?php echo $emailErr;?></span>
           <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
             <input type="text" placeholder="Enter Email" name="email">
           </span>
-          <span class="error"><?php echo $emailErr;?></span><br>
 
 
-          <label for='regpwd'><b>Password</b></label> <br />
+          <label for='pwd'><b>Password</b></label>
+          <span class="error"><?php echo $pswErr;?></span>
           <div class='pwdwidgetdiv' id='thepwddiv'></div>
           <script>
-            var pwdwidget = new PasswordWidget('thepwddiv','regpwd');
+            var pwdwidget = new PasswordWidget('thepwddiv','psw');
             pwdwidget.MakePWDWidget();
           </script>
           <noscript>
-            <div><input type='password' id='regpwd' name='regpwd' /></div>
+            <div><input type='password' id='psw' name='psw' /></div>
           </noscript>
           <br>
 
           
           <label for="psw-repeat"><b>Repeat Password</b></label>
+          <span class="error"><?php echo $repswErr;?></span>
           <span style="width: 100%; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;">
             <input type="password" placeholder="Repeat Your Password" name="psw-repeat">
           </span>
-          <span class="error"><?php echo $repswErr;?></span><br>
           <hr>
 
           <button type="submit" class="registerbtn">Register</button>
