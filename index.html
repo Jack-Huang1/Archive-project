@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>CNUT</title>
   <meta name="description" content="archival platform for the internet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
@@ -31,7 +31,7 @@
     <a class="active" href="#home">Home</a>
     <a href="./bertovone.html" type="html">Hot</a>
     <div class="dropdown">
-      <button class="dropbtn"><a href="./archive.html" type="html">Archive</a> 
+      <button class="dropbtn"><a href="./archive.html" type="html">Archive</a>
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -59,8 +59,12 @@
           <a href = "./archive.html" type ="html" style="float: right; background-color: inherit; color: black">More...</a>
         </div>
       </div>
-    </div> 
+    </div>
+
     <input type="text" placeholder="Search...">
+
+    <a href="login.html" type="html" class="acctlinks">Login</a>
+    <a href="registration.php" type="html" class="acctlinks">Sign Up</a>
   </div>
   
   <div class="content">
@@ -123,6 +127,12 @@
   	<h4>ABOUT</h4>
   </footer>
 
+  <!-- script for login dropdown -->
+  <script>
+  	function reveal() {
+    document.getElementById("logindrop").classList.toggle("show");
+    }
+  </script>
 
   <!-- script for slideshow -->
   <script>
