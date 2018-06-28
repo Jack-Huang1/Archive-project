@@ -139,7 +139,7 @@ function test_input($data) {
   </h1>
 
   <div class="topnav">
-    <a class="active" href="./index.html">Home</a>
+    <a class="active" href="index.html">Home</a>
     <a href="./bertovone.html" type="html">Hot</a>
     <div class="dropdown">
       <button class="dropbtn"><a href="./archive.html" type="html">Archive</a> 
@@ -172,6 +172,8 @@ function test_input($data) {
       </div>
     </div> 
     <input type="text" placeholder="Search...">
+    <a href="login.php" type="html" class="acctlinks">Login</a>
+    <a href="registration.php" type="html" class="acctlinks">Sign Up</a>
   </div>
 
   <div class="content" style="height: 805px">
@@ -230,8 +232,8 @@ function test_input($data) {
           <button type="submit" class="registerbtn">Register</button>
 
           <div class="signin">
-          <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
+            <p>Already have an account? <a href="login.php">Sign in</a>.</p>
+          </div>
         </div>
       </form>
 
