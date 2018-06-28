@@ -18,7 +18,7 @@ function PasswordWidget(divid,pwdname)
 
 	this.showing_pwd=1;
 	this.txtShow = 'Show';
-	this.txtMask = 'Mask';
+	this.txtMask = 'Hide';
 	this.txtGenerate = 'Generate';
 	this.txtWeak='weak';
 	this.txtMedium='medium';
