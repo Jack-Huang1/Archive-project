@@ -140,9 +140,9 @@ function test_input($data) {
 
   <div class="topnav">
     <a class="active" href="index.html">Home</a>
-    <a href="./bertovone.html" type="html">Hot</a>
+    <a href="hot.html">Hot</a>
     <div class="dropdown">
-      <button class="dropbtn"><a href="./archive.html" type="html">Archive</a> 
+      <button class="dropbtn"><a href="archive.html">Archive</a> 
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -176,7 +176,7 @@ function test_input($data) {
     <a href="registration.php" type="html" class="acctlinks">Sign Up</a>
   </div>
 
-  <div class="content" style="height: 805px">
+  <div class="content" style="height: 850px">
   
       <form name = "register" method=post action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
@@ -236,11 +236,11 @@ function test_input($data) {
           </div>
         </div>
       </form>
-
-      <footer class="footer">
-        <h4>ABOUT</h4>
-      </footer>
   </div>
+  
+  <footer class="footer">
+    <h4>ABOUT</h4>
+  </footer>
 
 
   <!-- boilerplate scripts -->
